@@ -374,20 +374,6 @@
 				"description": "CIDR used for the master subnet - needs to be a subset of the addressPrefix - default is 10.1.0.0/16"
 			}
 		},
-		"infraSubnetName": {
-		  "type": "string",
-		  "defaultValue": "infrasubnet",
-		  "metadata": {
-			"description": "Name of the subnet for Infra nodes"
-		  }
-		},
-		"infraSubnetPrefix": {
-			"type": "string",
-			"defaultValue": "10.2.0.0/16",
-			"metadata": {
-				"description": "CIDR used for the infra subnet - needs to be a subset of the addressPrefix - default is 10.2.0.0/16"
-			}
-		},
 		"nodeSubnetName": {
 			"type": "string",
 			"defaultValue": "nodesubnet",
@@ -407,13 +393,6 @@
 		  "defaultValue": "/subscriptions/abc686f6-963b-4e64-bff4-99dc369ab1cd/resourceGroups/vnetresourcegroup/providers/Microsoft.Network/virtualNetworks/openshiftvnet/subnets/mastersubnet",
 		  "metadata": {
 			"description": "Full reference to existing subnet for Master nodes"
-		  }
-		},
-		"existingInfraSubnetReference": {
-		  "type": "string",
-		  "defaultValue": "/subscriptions/abc686f6-963b-4e64-bff4-99dc369ab1cd/resourceGroups/vnetresourcegroup/providers/Microsoft.Network/virtualNetworks/openshiftvnet/subnets/infrasubnet",
-		  "metadata": {
-			"description": "Full reference to existing subnet for Infra nodes"
 		  }
 		},
 		"existingCnsSubnetReference": {
@@ -1343,11 +1322,7 @@
 					"properties": {
 						"addressPrefix": "[parameters('nodeSubnetPrefix')]"
 					}
-				}, {
-					"name": "[parameters('infraSubnetName')]",
-					"properties": {
-						"addressPrefix": "[parameters('infraSubnetPrefix')]"
-					}
+				
 				}]
 			}
 		}, {
