@@ -58,19 +58,14 @@
         address_prefix: "{{ master_subnet_cidr }}"
         virtual_network: "{{ virtual_network_name }}"
   
-    - name: Add node subnet
-      azure_rm_subnet:
-        resource_group: "{{ resource_group }}"
-        name: nodesubnet
-        address_prefix: "{{ node_subnet_cidr }}"
-        virtual_network: "{{ virtual_network_name }}"
+#
   
-    - name: Add infra subnet
-      azure_rm_subnet:
-        resource_group: "{{ resource_group }}"
-        name: infrasubnet
-        address_prefix: "{{ infra_subnet_cidr }}"
-        virtual_network: "{{ virtual_network_name }}"
+#   - name: Add infra subnet
+#      azure_rm_subnet:
+#        resource_group: "{{ resource_group }}"
+#        name: infrasubnet
+#        address_prefix: "{{ infra_subnet_cidr }}"
+#        virtual_network: "{{ virtual_network_name }}"
 
     - name: Create infrastructure NSG
       azure_rm_securitygroup:
@@ -251,7 +246,7 @@
         resource_group: "{{ resource_group }}"
         name: "{{ cluster_prefix }}-bastion-nic"
         virtual_network: "{{ virtual_network_name }}"
-        subnet: infrasubnet
+        subnet: mastersubnet
         security_group: "{{ cluster_prefix }}-infra-nsg"
         ip_configurations:
           - name: ipconfig0
@@ -317,7 +312,7 @@
         resource_group: "{{ resource_group }}"
         name: "{{ cluster_prefix }}-infra-{{ item }}-nic"
         virtual_network: "{{ virtual_network_name }}"
-        subnet: infrasubnet
+        subnet: mastersubnet
         security_group: "{{ cluster_prefix }}-infra-nsg"
         ip_configurations:
           - name: ipconfig1
