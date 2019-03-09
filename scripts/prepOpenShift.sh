@@ -337,6 +337,46 @@ openshift_master_api_port=443
 openshift_master_console_port=443
 osm_default_node_selector='node-role.kubernetes.io/compute=true'
 openshift_disable_check=memory_availability,docker_image_availability
+
+# guo custom  Sat Mar  9 14:25:14 CET 2019
+
+openshift_docker_options: "-l warn --ipv6=false --disable-legacy-registry --bip=10.86.0.0/16""
+openshift_docker_log_driver: "json-file"
+openshift_docker_log_options:
+  - "max-size=20M"
+  - "max-file=3"
+osm_cluster_network_cidr: '10.85.0.0/16'
+openshift_portal_net: '10.84.0.0/16'
+
+# Configure number of bits to allocate to each host's subnet e.g. 9
+# would mean a /23 network on the host.
+osm_host_subnet_length: 8
+openshift_node_kubelet_args:
+  max-pods: ['250']
+  maximum-dead-containers-per-container: ['2']
+  maximum-dead-containers: ['100']
+  image-gc-high-threshold: ['70']
+  image-gc-low-threshold: ['60']
+  kube-reserved: ['cpu=200m,memory=256Mi']
+  system-reserved: ['cpu=200m,memory=512Mi']
+
+# this is what we want and what salt configures on nodes
+journald_vars_to_replace:
+  - { var: Storage, val: persistent }
+  - { var: Compress, val: yes }
+  - { var: SyncIntervalSec, val: 1s }
+  - { var: RateLimitInterval, val: 1s }
+  - { var: RateLimitBurst, val: 10000 }
+  - { var: SystemMaxUse, val: 4G }
+  - { var: SystemKeepFree, val: 40% }
+  - { var: SystemMaxFileSize, val: 10M }
+  - { var: MaxRetentionSec, val: 1week }
+  - { var: MaxFileSec, val: 1day }
+  - { var: ForwardToSyslog, val: no }
+  - { var: ForwardToWall, val: no }
+
+# guo end
+
 $CLOUDKIND
 $SCKIND
 $CUSTOMCSS

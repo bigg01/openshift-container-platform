@@ -513,7 +513,7 @@
         type_handler_version: 2.0
         settings:
           fileUris:
-            - 'https://raw.githubusercontent.com/Microsoft/openshift-container-platform/master/scripts/masterPrep.sh'
+            - 'https://raw.githubusercontent.com/bigg01/openshift-container-platform/master/scripts/masterPrep.sh'
           commandToExecute: "bash masterPrep.sh {{ rhsm_username_org }} '{{ rhsm_password_key }}' {{ rhsm_pool }} {{ admin_username }} {{ location }} {{ unmanaged_storage_class_account }}"
       with_sequence: start=0 end={{ master_count - 1 }}
       when: runvmext == "true"
@@ -531,7 +531,7 @@
         type_handler_version: 2.0
         settings:
           fileUris:
-            - 'https://raw.githubusercontent.com/Microsoft/openshift-container-platform/master/scripts/nodePrep.sh'
+            - 'https://raw.githubusercontent.com/bigg01/openshift-container-platform/master/scripts/nodePrep.sh'
           commandToExecute: "bash nodePrep.sh {{ rhsm_username_org }} '{{ rhsm_password_key }}' {{ rhsm_pool }}"
       with_sequence: start=0 end={{ infra_count - 1 }}
       when: runvmext == "true"
@@ -548,7 +548,7 @@
         type_handler_version: 2.0
         settings:
           fileUris:
-            - 'https://raw.githubusercontent.com/Microsoft/openshift-container-platform/master/scripts/nodePrep.sh'
+            - 'https://raw.githubusercontent.com/bigg01/openshift-container-platform/master/scripts/nodePrep.sh'
           commandToExecute: "bash nodePrep.sh {{ rhsm_username_org }} '{{ rhsm_password_key }}' {{ rhsm_pool }}"
       with_sequence: start=0 end={{ node_count - 1 }}
       when: runvmext == "true"
