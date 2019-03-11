@@ -130,7 +130,7 @@ echo "DOMAIN=`domainname -d`" >> /etc/sysconfig/network-scripts/ifcfg-eth0
 
 # Run Ansible Playbook to update ansible.cfg file
 echo $(date) " - Updating ansible.cfg file"
-wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 5 https://raw.githubusercontent.com/microsoft/openshift-container-platform-playbooks/master/updateansiblecfg.yaml
+wget --retry-connrefused --waitretry=1 --read-timeout=20 --timeout=15 -t 5 https://raw.githubusercontent.com/bigg01/openshift-container-platform-playbooks/master/updateansiblecfg.yaml
 ansible-playbook -f 10 ./updateansiblecfg.yaml
 
 # Create certificate files 

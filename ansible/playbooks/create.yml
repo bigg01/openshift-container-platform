@@ -660,7 +660,7 @@
 
     - name: Get updateansiblecfg.yaml playbook
       get_url:
-        url: https://raw.githubusercontent.com/microsoft/openshift-container-platform-playbooks/master/updateansiblecfg.yaml
+        url: https://raw.githubusercontent.com/bigg01/openshift-container-platform-playbooks/master/updateansiblecfg.yaml
         dest: .
     
     - name: Run updateansiblecfg.yaml playbook
