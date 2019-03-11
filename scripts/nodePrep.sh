@@ -106,7 +106,7 @@ yum -y install docker
 # Update docker storage
 echo "
 # Adding insecure-registry option required by OpenShift
-OPTIONS=\"\$OPTIONS --insecure-registry 10.84.0.0/16 --bip=10.86.0.0/16\"
+OPTIONS=\"\$OPTIONS --insecure-registry 10.84.0.0/16 --bip=10.86.0.1/16\"
 " >> /etc/sysconfig/docker
 
 # Create thin pool logical volume for Docker
