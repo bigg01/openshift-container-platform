@@ -341,7 +341,7 @@ openshift_disable_check=memory_availability,docker_image_availability
 
 # guo custom  Sat Mar  9 14:25:14 CET 2019
 
-openshift_docker_options: "-l warn --ipv6=false --disable-legacy-registry --bip=10.86.0.1/16""
+openshift_docker_options: "-l warn --ipv6=false --disable-legacy-registry --bip=10.86.0.100/16""
 openshift_docker_log_driver: "json-file"
 openshift_docker_log_options:
   - "max-size=20M"
