@@ -126,7 +126,9 @@ sudo yum install -y ImageMagick
 
 # Configure DNS so it always has the domain name
 echo $(date) " - Adding DOMAIN to search for resolv.conf"
-echo "DOMAIN=`domainname -d`" >> /etc/sysconfig/network-scripts/ifcfg-eth0
+#echo "DOMAIN=`domainname -d`" >> /etc/sysconfig/network-scripts/ifcfg-eth0
+# tkggo 
+echo 'DOMAIN="ocp.sixdx.com sixdx.org sixdx.com reddog.microsoft.com"' >> /etc/sysconfig/network-scripts/ifcfg-eth0
 
 # Run Ansible Playbook to update ansible.cfg file
 echo $(date) " - Updating ansible.cfg file"
@@ -153,7 +155,10 @@ then
 	echo $(date) " - Custom routing certificate files routingca.pem, routingcert.pem, routingkey.pem created in /tmp"
 fi
 
+
 echo $(date) " - tkggo please add DNS records - sleep 10min"
+
+echo "az vm list-ip-addresses -g RMG-SDX6100001 -o table"
 sleep 600
 
 
