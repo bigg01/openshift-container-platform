@@ -153,5 +153,9 @@ then
 	echo $(date) " - Custom routing certificate files routingca.pem, routingcert.pem, routingkey.pem created in /tmp"
 fi
 
+echo $(date) " - tkggo please add DNS records - sleep 10min"
+sleep 600
+
+
 echo $(date) " - Script Complete"
 
