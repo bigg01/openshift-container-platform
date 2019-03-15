@@ -20,6 +20,8 @@ EOF
 
 cat /etc/resolv.conf
 
+echo "az vm list-ip-addresses -g RMG-SDX6100001 -o table"
+sleep 600
 
 # Remove RHUI
 
